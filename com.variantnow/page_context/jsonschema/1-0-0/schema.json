@@ -1,0 +1,35 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Schema for page context information",
+  "self": {
+    "vendor": "com.example",
+    "name": "page_context",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string",
+      "description": "The cleaned path of the current page"
+    },
+    "url": {
+      "type": "string",
+      "description": "The full URL of the current page"
+    },
+    "template": {
+      "type": "string",
+      "description": "The Shopify template name"
+    },
+    "page_title": {
+      "type": "string",
+      "description": "The title of the current page"
+    },
+    "referrer": {
+      "type": "string",
+      "description": "The referrer URL"
+    }
+  },
+  "required": ["path", "url"],
+  "additionalProperties": false
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Schema for legacy user and session IDs",
+  "self": {
+    "vendor": "com.example",
+    "name": "legacy_ids",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "uid-legacy": {
+      "type": "string",
+      "description": "Legacy user ID"
+    },
+    "sid-legacy": {
+      "type": "string",
+      "description": "Legacy session ID"
+    }
+  },
+  "required": ["uid-legacy", "sid-legacy"],
+  "additionalProperties": false
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Schema for A/B testing experiment assignments",
+  "self": {
+    "vendor": "com.example",
+    "name": "experiment_assignments",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "experiments": {
+      "type": "array",
+      "description": "List of experiment assignments",
+      "items": {
+        "type": "object",
+        "properties": {
+          "test_id": {
+            "type": "string",
+            "description": "Unique identifier for the test"
+          },
+          "test_name": {
+            "type": "string",
+            "description": "Human-readable name of the test"
+          },
+          "assigned_variant": {
+            "type": "string",
+            "description": "The variant assigned to the user"
+          },
+          "group": {
+            "type": "string",
+            "description": "The group the test belongs to"
+          },
+          "mode": {
+            "type": "string",
+            "description": "The mode of the test (e.g., production, development)"
+          },
+          "tested_variant": {
+            "type": "string",
+            "description": "The variant being tested"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of experiment"
+          }
+        },
+        "required": ["test_id", "assigned_variant"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["experiments"],
+  "additionalProperties": false
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "description": "Schema for page view events with experiment data",
+  "self": {
+    "vendor": "com.variantnow",
+    "name": "page_view_with_experiments",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "type": "object",
+  "properties": {
+    "page": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The path component of the page URL"
+        },
+        "url": {
+          "type": "string",
+          "description": "The full URL of the page"
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the page"
+        },
+        "referrer": {
+          "type": "string",
+          "description": "The referrer URL"
+        },
+        "template": {
+          "type": "string",
+          "description": "The template name used for the page"
+        }
+      },
+      "required": ["path", "url", "title"],
+      "additionalProperties": false
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "uid-legacy": {
+          "type": "string",
+          "description": "Legacy user identifier"
+        },
+        "sid-legacy": {
+          "type": "string",
+          "description": "Legacy session identifier"
+        }
+      },
+      "required": ["uid-legacy", "sid-legacy"],
+      "additionalProperties": false
+    },
+    "experiments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "test_id": {
+            "type": "string",
+            "description": "Unique identifier for the experiment"
+          },
+          "test_name": {
+            "type": "string",
+            "description": "Name of the experiment"
+          },
+          "assigned_variant": {
+            "type": "string",
+            "description": "The variant assigned to the user"
+          },
+          "tested_variant": {
+            "type": "string",
+            "description": "The variant being tested"
+          },
+          "group": {
+            "type": "string",
+            "description": "Group the experiment belongs to"
+          },
+          "mode": {
+            "type": "string",
+            "description": "Mode of the experiment (e.g., production, development)"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of experiment (e.g., ab-test)"
+          }
+        },
+        "required": ["test_id", "assigned_variant"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["page", "user"],
+  "additionalProperties": false
+}
